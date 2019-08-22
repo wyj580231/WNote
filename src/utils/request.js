@@ -11,12 +11,14 @@ function checkStatus(response) {
   }
   throw { response };
 }
-
+let Authorization = null;
 async function request(
   url,
   { method = 'get', isStringify = true, isAutoAlert = true, body, ContentType, isProcessBody = true } = {}
 ) {
-  const Authorization = await DeviceStorage.get('authorization');
+  if (!Authorization) {
+    Authorization = await DeviceStorage.get('authorization');
+  }
   if (url.startsWith('/api')) {
     //url = 'http://192.168.3.7:11773' + url;
     url = 'http://47.100.2.128:5010' + url;
