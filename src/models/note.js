@@ -109,7 +109,7 @@ export default {
       const mtime = dayjs().format('YYYY-MM-DD HH:mm:ss');
       return {
         ...state,
-        passwordNotes: [...state.passwordNotes, { ...payload, status: 2, mtime, createDate: mtime, id: maxID + 1 }],
+        passwordNotes: [{ ...payload, status: 2, mtime, createDate: mtime, id: maxID + 1 }, ...state.passwordNotes],
       };
     },
     deleteNote(
@@ -136,7 +136,7 @@ export default {
     addNote(state, { payload }) {
       const maxID = Math.max(0, ...state.notes.map(v => v.id));
       const mtime = dayjs().format('YYYY-MM-DD HH:mm:ss');
-      return { ...state, notes: [...state.notes, { ...payload, status: 2, mtime, createDate: mtime, id: maxID + 1 }] };
+      return { ...state, notes: [{ ...payload, status: 2, mtime, createDate: mtime, id: maxID + 1 }, ...state.notes] };
     },
     deleteBook(
       state,
@@ -171,7 +171,7 @@ export default {
     addBook(state, { payload }) {
       const maxID = Math.max(0, ...state.books.map(v => v.id));
       const mtime = dayjs().format('YYYY-MM-DD HH:mm:ss');
-      return { ...state, books: [...state.books, { ...payload, status: 2, mtime, createDate: mtime, id: maxID + 1 }] };
+      return { ...state, books: [{ ...payload, status: 2, mtime, createDate: mtime, id: maxID + 1 }, ...state.books] };
     },
   },
 };
