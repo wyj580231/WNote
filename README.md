@@ -105,7 +105,7 @@ npm run build
 
 ## 三.基础功能封装
 ### AsyncStorage [官网地址](https://reactnative.cn/docs/asyncstorage/)
-使用和web端localstorage的api类似,不过官网建议不要直接使用,而是在AsyncStorage 的基础上做一层抽象封装 ,本来准备直接用封装好的react-native-storage,看了下api实在不喜欢 , 就简单封装了一下 , 保存时在原始数据外加了一层通过JSON.stringify序列化保存, 好处是可以保留数据的类型 , 避免bool和number值保存成字符串.有更好的库欢迎推荐.
+使用和web端localstorage的api类似,不过官网建议不要直接使用,而是在AsyncStorage 的基础上做一层抽象封装 ,本来准备直接用封装好的react-native-storage,看了下api实在不喜欢 , 就简单封装了一下 .有更好的库欢迎推荐.
 ```JavaScript
 import AsyncStorage from '@react-native-community/async-storage';
 
